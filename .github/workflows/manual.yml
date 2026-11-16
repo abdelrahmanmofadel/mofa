@@ -1,22 +1,20 @@
 name: Manual Workflow
-on: 
-   workflow_dispatch:
-     inputs:
-       environment:
-         description: "choose environment"
-         required: true
-         default: "staging" 
-         type: choice
-         options:
-           - staging
-           - production
-           - UAT
-      
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Choose environment"
+        required: true
+        default: "staging"
+        type: choice
+        options:
+          - staging
+          - production
+          - UAT
+
 jobs:
-   deploy:
-     runs-on: ubuntu-latest
-     steps:
-        - name: Deploy Application
-          run: echo "Deploying the new application ${{inputs.environment}}"
-          
-   
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy Application
+        run: echo "Deploying the new application ${{ inputs.environment }}"
