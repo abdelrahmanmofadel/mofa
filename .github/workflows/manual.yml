@@ -1,6 +1,17 @@
 name: Manual Workflow
 on: 
    workflow_dispatch:
+     inputs:
+       environment:
+         description: "choose environment"
+         required: true
+         default: "staging" 
+         type: choice
+         options:
+           - staging
+           - production
+           - UAT
+      
 jobs:
    deploy:
      runs-on: ubuntu-latest
